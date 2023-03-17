@@ -1,0 +1,16 @@
+@import './base.css';
+
+.card {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .card-body {
+    padding: 2em;
+  }
+  
+  .card-img-top {
+    display: inline;
+    max-width: 15rem;
+    height: 250px;
+  }
