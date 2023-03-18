@@ -5,8 +5,8 @@
     "background_color": "#fff",
     "display": "minimal-ui",
     "orientation": "portrait",
-    "scope": "https://ronraj101.github.io/Web-Based-CW3-Individual/cw3/",
-    "start_url": "https://ronraj101.github.io/Web-Based-CW3-Individual/cw3/",
+    "scope": "https://ronraj101.github.io/Web-Based-CW3-Individual/",
+    "start_url": "https://ronraj101.github.io/Web-Based-CW3-Individual/",
     "icons": [
       {
         "src": "src/assets/images/icons/icon-72x72.png",
