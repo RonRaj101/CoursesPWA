@@ -70,15 +70,35 @@
      
       </div>
 
-
-
     </div>
 
   </div>
 
   <div>
+
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Order Confirmed <i class="bi bi-check-circle"></i></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Thank you for your order! We will be in touch shortly.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a src="javascript:location.reload()" type="button" class="btn btn-primary">Understood</a>
+      </div>
+    </div>
+  </div>
+</div>
     
-    <form  v-show="cartCount > 0">
+    <form @submit.prevent=""  v-show="cartCount > 0">
       <hr>
       <h1 class="display-4">Check Out</h1>
       <br>
@@ -95,7 +115,7 @@
         </div>
       </div>
       <div class="mb-3 px-2 row">
-          <button :disabled="buyDisabled" type="submit" class="btn btn-secondary col">Submit Order</button>
+          <button :disabled="buyDisabled" type="submit" class="btn btn-secondary col" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Submit Order</button>
       </div>
     </form>
   </div>  

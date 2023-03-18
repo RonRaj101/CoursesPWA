@@ -33,7 +33,7 @@
 
     <div class="row">
       <span class="col-10 display-3">Available Courses</span>
-      <a @click="switchComponent" class="col-2 display-6" style="align-self: center; cursor: pointer;"><i class="bi bi-cart2">{{ cartCount }}</i></a>
+      <a @click="switchComponent" class="col-2 display-6" style="align-self: center; cursor: pointer;"><i class="bi bi-cart2"></i>{{ cartCount }}</a>
     </div>
     <!-- Courses Section -->
     <div class="row mt-5 card-group" style="display:-webkit-box;">
