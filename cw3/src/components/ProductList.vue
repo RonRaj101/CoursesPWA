@@ -33,7 +33,7 @@
 
     <div class="row">
       <span class="col-10 display-3">Available Courses</span>
-      <a @click="switchComponent" class="col-2 display-6" style="align-self: center; cursor: pointer;"><i class="bi bi-cart2"></i></a>
+      <a @click="switchComponent" class="col-2 display-6" style="align-self: center; cursor: pointer;"><i class="bi bi-cart2">{{ cartCount }}</i></a>
     </div>
     <!-- Courses Section -->
     <div class="row mt-5 card-group" style="display:-webkit-box;">
@@ -85,6 +85,10 @@ defineProps({
     type: Array,
     required: true
   },
+  Cart:{
+    type: Array,
+    required: true
+  }
 });
 </script>
 
@@ -97,6 +101,7 @@ export default {
       items: this.Courses,
       filterValue: null,
       checkBox: 'asc',
+      cart: this.Cart,
     }
   },
 
@@ -110,7 +115,18 @@ export default {
   },
 
   computed: {
-    // eslint-disable-next-line vue/return-in-computed-property
+   
+    cartCount() {
+      //count number of items in cart where quantity > 0
+      let count = 0;
+      this.Cart.forEach(element => {
+        if (element.quantity > 0) {
+          count++;
+        }
+      });
+      return count;
+    },
+     // eslint-disable-next-line vue/return-in-computed-property
     filteredProducts() {
       if (this.searchQuery == "" && this.filterValue == null) {
         return this.items;

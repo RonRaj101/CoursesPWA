@@ -78,20 +78,20 @@
 
   <div>
     
-    <form v-show="cartCount > 0">
+    <form  v-show="cartCount > 0">
       <hr>
       <h1 class="display-4">Check Out</h1>
       <br>
       <div class="mb-3 row">
         <label for="inputText" class="col-sm-2 col-form-label">Full Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputText">
+          <input @change="cartEligible" v-model="username_checkout" type="text" class="form-control" id="inputText" required>
         </div>
       </div>
       <div class="mb-3 row">
         <label for="inputPhone" class="col-sm-2 col-form-label">Phone Number</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="inputPhone">
+          <input @change="cartEligible" v-model="phone_checkout" type="number" class="form-control" id="inputPhone" required>
         </div>
       </div>
       <div class="mb-3 px-2 row">
@@ -115,6 +115,8 @@ export default {
   emits: ['modify_cart'],
   data() {
     return {
+      username_checkout: '',
+      phone_checkout: '',
       buyDisabled: true,
     }
   },
@@ -125,6 +127,16 @@ export default {
     },
     switchComponent() {
       this.$emit('go_to_products');
+    },
+    cartEligible(){
+      //regex check name and phone number
+      let nameRegex = /^[a-zA-Z ]{2,30}$/;
+      let phoneRegex = /^[0-9]/;
+      if (nameRegex.test(this.username_checkout) && phoneRegex.test(this.phone_checkout)){
+        this.buyDisabled = false;
+      } else {
+        this.buyDisabled = true;  
+      }
     }
   },
   computed: {
@@ -141,7 +153,8 @@ export default {
     sortedCart(){
       // sort cart by quantity descending
       return this.Cart.sort((a, b) => (a.quantity < b.quantity) ? 1 : -1)
-    }
+    },
+    
   }
 }
 </script>
