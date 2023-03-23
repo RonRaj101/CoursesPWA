@@ -1,3 +1,6 @@
+Repo: https://github.com/RonRaj101/Web-Based-CW3-Individual
+Pages: https://ronraj101.github.io/Web-Based-CW3-Individual/
+
 # cw3
 
 This template should help get you started developing with Vue 3 in Vite.
