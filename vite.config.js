@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/WEB BASED CW3 INDIVIDUAL/",
   plugins: [vue()],
   resolve: {
     alias: {
